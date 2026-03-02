@@ -1,9 +1,10 @@
 import { rm } from "node:fs/promises";
-import shiki from "@shikijs/markdown-it";
+import { fromAsyncCodeToHtml } from "@shikijs/markdown-it/async";
+import { createMarkdownExit } from "markdown-exit";
+import { codeToHtml } from "shiki";
 
-const shikiPlugin = await shiki({
-  theme: "vitesse-light",
-});
+const md = createMarkdownExit();
+md.use(fromAsyncCodeToHtml(codeToHtml, { theme: "vitesse-light" }));
 
 export default async function (eleventyConfig) {
   eleventyConfig.setInputDirectory("src");
@@ -18,5 +19,9 @@ export default async function (eleventyConfig) {
   eleventyConfig.addCollection("posts", (collectionsApi) =>
     collectionsApi.getFilteredByGlob("src/posts/*.md"),
   );
-  eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(shikiPlugin));
+  eleventyConfig.addExtension("md", {
+    async compile(input) {
+      return async () => await md.renderAsync(input);
+    },
+  });
 }

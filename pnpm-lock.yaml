@@ -14,9 +14,15 @@ importers:
       '@shikijs/markdown-it':
         specifier: ^4.0.1
         version: 4.0.1
+      markdown-exit:
+        specifier: 1.0.0-beta.8
+        version: 1.0.0-beta.8
       oxfmt:
         specifier: ^0.36.0
         version: 0.36.0
+      shiki:
+        specifier: ^4.0.1
+        version: 4.0.1
       valibot:
         specifier: ^1.2.0
         version: 1.2.0
@@ -485,6 +491,9 @@ packages:
 
   list-to-array@1.1.0:
     resolution: {integrity: sha512-+dAZZ2mM+/m+vY9ezfoueVvrgnHIGi5FvgSymbIgJOFwiznWyA59mav95L+Mc6xPtL3s9gm5eNTlNtxJLbNM1g==}
+
+  markdown-exit@1.0.0-beta.8:
+    resolution: {integrity: sha512-LuwW1iurvRspcUJlgMk/QBC2is+aOqRDwseGQA3wYrUwadVvMYpxazx6ZKxxyIkLuQhV40M/3E4lU4qIavsAlA==}
 
   markdown-it@14.1.1:
     resolution: {integrity: sha512-BuU2qnTti9YKgK5N+IeMubp14ZUKUUw7yeJbkjtosvHiP0AZ5c8IAgEMk79D0eC8F23r4Ac/q8cAIFdm2FtyoA==}
@@ -1165,6 +1174,14 @@ snapshots:
       commander: 10.0.1
 
   list-to-array@1.1.0: {}
+
+  markdown-exit@1.0.0-beta.8:
+    dependencies:
+      entities: 7.0.1
+      linkify-it: 5.0.0
+      mdurl: 2.0.0
+      punycode.js: 2.3.1
+      uc.micro: 2.1.0
 
   markdown-it@14.1.1:
     dependencies:
