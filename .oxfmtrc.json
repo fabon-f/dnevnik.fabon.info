@@ -1,0 +1,19 @@
+{
+	"$schema": "./node_modules/oxfmt/configuration_schema.json",
+	"ignorePatterns": [
+		"pnpm-lock.yaml",
+		"*.json",
+    "*.md",
+    "*.html"
+	],
+	"experimentalSortImports": {
+		"groups": [
+			["side_effect"],
+			["builtin"],
+			["external"],
+			["parent"],
+			["sibling", "index"],
+		],
+		"newlinesBetween": false
+	}
+}
