@@ -1,4 +1,9 @@
 import { rm } from "node:fs/promises";
+import shiki from "@shikijs/markdown-it";
+
+const shikiPlugin = await shiki({
+  theme: "vitesse-light",
+});
 
 export default async function (eleventyConfig) {
   eleventyConfig.setInputDirectory("src");
@@ -13,4 +18,5 @@ export default async function (eleventyConfig) {
   eleventyConfig.addCollection("posts", (collectionsApi) =>
     collectionsApi.getFilteredByGlob("src/posts/*.md"),
   );
+  eleventyConfig.amendLibrary("md", (mdLib) => mdLib.use(shikiPlugin));
 }
