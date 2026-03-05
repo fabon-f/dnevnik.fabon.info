@@ -14,6 +14,9 @@ importers:
       '@shikijs/markdown-it':
         specifier: ^4.0.1
         version: 4.0.1
+      eleventy-plugin-vento:
+        specifier: ^5.3.0
+        version: 5.3.0
       markdown-exit:
         specifier: 1.0.0-beta.8
         version: 1.0.0-beta.8
@@ -356,6 +359,10 @@ packages:
 
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
+
+  eleventy-plugin-vento@5.3.0:
+    resolution: {integrity: sha512-v1kvrV/lWooOw9ORMCWv7MZ/a9A9EF87tl6e3LYdMpkKxhMN+UVi645zwyGysIpnhHQt0XnrZohySvadduYfrg==}
+    engines: {node: '>=18'}
 
   encodeurl@2.0.0:
     resolution: {integrity: sha512-Q0n9HRi4m6JuGIV1eFlmvJB7ZEVxu93IrMyiMsGC0lrMJMWzRgx6WGquyfQgZVb31vhGgXnfmPNNXmxnOkRBrg==}
@@ -713,6 +720,9 @@ packages:
       typescript:
         optional: true
 
+  ventojs@2.3.0:
+    resolution: {integrity: sha512-Vi/ZdC7QwdaaPTDL6fMWBxj+LnLTynDbef8Mb3YId3AR1Tnds2dS8YRUU/o51/Fv/5rdTNFJL4YHtBpfBbTQKg==}
+
   vfile-message@4.0.3:
     resolution: {integrity: sha512-QTHzsGd1EhbZs4AsQ20JX1rC3cOlt/IWJruk893DfLRr57lcnOeMaWG4K0JrRta4mIJZKth2Au3mM3u03/JWKw==}
 
@@ -1047,6 +1057,13 @@ snapshots:
       domhandler: 4.3.1
 
   ee-first@1.1.1: {}
+
+  eleventy-plugin-vento@5.3.0:
+    dependencies:
+      debug: 4.4.3
+      ventojs: 2.3.0
+    transitivePeerDependencies:
+      - supports-color
 
   encodeurl@2.0.0: {}
 
@@ -1422,6 +1439,8 @@ snapshots:
   urlpattern-polyfill@10.1.0: {}
 
   valibot@1.2.0: {}
+
+  ventojs@2.3.0: {}
 
   vfile-message@4.0.3:
     dependencies:

@@ -1,5 +1,6 @@
 import { rm } from "node:fs/promises";
 import { fromAsyncCodeToHtml } from "@shikijs/markdown-it/async";
+import { VentoPlugin } from "eleventy-plugin-vento";
 import { createMarkdownExit } from "markdown-exit";
 import { codeToHtml } from "shiki";
 
@@ -7,6 +8,8 @@ const md = createMarkdownExit();
 md.use(fromAsyncCodeToHtml(codeToHtml, { theme: "vitesse-light" }));
 
 export default async function (eleventyConfig) {
+  eleventyConfig.addPlugin(VentoPlugin);
+
   eleventyConfig.setInputDirectory("src");
   eleventyConfig.on("eleventy.before", async ({ dir }) => {
     await rm(dir.output, { recursive: true, force: true });
