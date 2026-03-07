@@ -2,8 +2,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "eleventy --serve",
-    "build": "eleventy"
+    "dev": "eleventy --config eleventy.config.ts --serve",
+    "build": "eleventy --config eleventy.config.ts"
   },
   "devDependencies": {
     "@11ty/eleventy": "^4.0.0-alpha.6",
