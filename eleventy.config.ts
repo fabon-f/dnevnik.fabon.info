@@ -4,6 +4,7 @@ import { fromAsyncCodeToHtml } from "@shikijs/markdown-it/async";
 import { VentoPlugin } from "eleventy-plugin-vento";
 import { createMarkdownExit } from "markdown-exit";
 import { codeToHtml } from "shiki";
+import { parsePageDate } from "./lib/temporal.ts";
 
 const md = createMarkdownExit();
 md.use(fromAsyncCodeToHtml(codeToHtml, { theme: "nord" }));
@@ -30,5 +31,11 @@ export default async function (eleventyConfig: any) {
     async compile(input: string) {
       return async () => await md.renderAsync(input);
     },
+  });
+  eleventyConfig.addDateParsing((date?: Date | string) => {
+    if (typeof date === "string") {
+      return new Date(parsePageDate(date).epochMilliseconds);
+    }
+    return date;
   });
 }

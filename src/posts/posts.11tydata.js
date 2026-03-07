@@ -1,4 +1,5 @@
 import * as v from "valibot";
+import { zonedDateTimeFromPageDate } from "../../lib/temporal.ts";
 
 export default {
   layout: "layouts/article.vto",
@@ -7,13 +8,16 @@ export default {
     if (data.draft) {
       return `/drafts/${slug}/`;
     }
-    const date = data.page.date;
-    return `/posts/${date.getUTCFullYear()}/${(date.getUTCMonth() + 1).toString().padStart(2, "0")}/${date.getUTCDate().toString().padStart(2, "0")}/${slug}/`;
+    return `/posts/${zonedDateTimeFromPageDate(data.page.date).toPlainDate().toString().replaceAll("-", "/")}/${slug}/`;
   },
   eleventyDataSchema(data) {
     const schema = v.union([
       v.object({ draft: v.literal(true) }),
-      v.object({ draft: v.optional(v.literal(false)), title: v.string(), date: v.date() }),
+      v.object({
+        draft: v.optional(v.literal(false)),
+        title: v.string(),
+        date: v.union([v.date(), v.string()]),
+      }),
     ]);
     v.parse(schema, data);
   },
