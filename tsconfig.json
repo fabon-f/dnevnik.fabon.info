@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "skipLibCheck": true,
+    "verbatimModuleSyntax": true,
+    "lib": ["ESNext"],
+    "types": ["node"],
+
+    /* Projects */
+    "target": "ESNext",
+    "module": "NodeNext",
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": false,
+    "allowImportingTsExtensions": true,
+    "erasableSyntaxOnly": true,
+  },
+  "exclude": ["/_site"],
+}

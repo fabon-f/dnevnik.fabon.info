@@ -14,6 +14,9 @@ importers:
       '@shikijs/markdown-it':
         specifier: ^4.0.1
         version: 4.0.1
+      '@types/node':
+        specifier: ^25.3.5
+        version: 25.3.5
       eleventy-plugin-vento:
         specifier: ^5.3.0
         version: 5.3.0
@@ -29,9 +32,12 @@ importers:
       temporal-polyfill-lite:
         specifier: ^0.3.1
         version: 0.3.1
+      typescript:
+        specifier: 6.0.1-rc
+        version: 6.0.1-rc
       valibot:
         specifier: ^1.2.0
-        version: 1.2.0
+        version: 1.2.0(typescript@6.0.1-rc)
 
 packages:
 
@@ -261,6 +267,9 @@ packages:
 
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
+
+  '@types/node@25.3.5':
+    resolution: {integrity: sha512-oX8xrhvpiyRCQkG1MFchB09f+cXftgIXb3a7UUa4Y3wpmZPw5tyZGTLWhlESOLq1Rq6oDlc8npVU2/9xiCuXMA==}
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -697,8 +706,16 @@ packages:
   trim-lines@3.0.1:
     resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
 
+  typescript@6.0.1-rc:
+    resolution: {integrity: sha512-7XlzYb+p/7YxX6qSOzwB4mxVFRdAgWWkj1PgAZ+jzldeuFV6Z77vwFbNxHsUXAL/bhlWY2jCT8shLwDJR8337g==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   uc.micro@2.1.0:
     resolution: {integrity: sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==}
+
+  undici-types@7.18.2:
+    resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
 
   unist-util-is@6.0.1:
     resolution: {integrity: sha512-LsiILbtBETkDz8I9p1dQ0uyRUWuaQzd/cuEeS1hoRSyW5E5XGmTzlwY1OrNzzakGowI9Dr/I8HVaw4hTtnxy8g==}
@@ -980,6 +997,10 @@ snapshots:
   '@types/mdast@4.0.4':
     dependencies:
       '@types/unist': 3.0.3
+
+  '@types/node@25.3.5':
+    dependencies:
+      undici-types: 7.18.2
 
   '@types/unist@3.0.3': {}
 
@@ -1419,7 +1440,11 @@ snapshots:
 
   trim-lines@3.0.1: {}
 
+  typescript@6.0.1-rc: {}
+
   uc.micro@2.1.0: {}
+
+  undici-types@7.18.2: {}
 
   unist-util-is@6.0.1:
     dependencies:
@@ -1446,7 +1471,9 @@ snapshots:
 
   urlpattern-polyfill@10.1.0: {}
 
-  valibot@1.2.0: {}
+  valibot@1.2.0(typescript@6.0.1-rc):
+    optionalDependencies:
+      typescript: 6.0.1-rc
 
   ventojs@2.3.0: {}
 

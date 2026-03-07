@@ -8,11 +8,13 @@
   "devDependencies": {
     "@11ty/eleventy": "^4.0.0-alpha.6",
     "@shikijs/markdown-it": "^4.0.1",
+    "@types/node": "^25.3.5",
     "eleventy-plugin-vento": "^5.3.0",
     "markdown-exit": "1.0.0-beta.8",
     "oxfmt": "^0.36.0",
     "shiki": "^4.0.1",
     "temporal-polyfill-lite": "^0.3.1",
+    "typescript": "6.0.1-rc",
     "valibot": "^1.2.0"
   },
   "packageManager": "pnpm@10.30.3"
