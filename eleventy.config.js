@@ -1,3 +1,4 @@
+import "temporal-polyfill-lite/global";
 import { rm } from "node:fs/promises";
 import { fromAsyncCodeToHtml } from "@shikijs/markdown-it/async";
 import { VentoPlugin } from "eleventy-plugin-vento";
