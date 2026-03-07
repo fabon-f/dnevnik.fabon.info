@@ -1,0 +1,48 @@
+:root {
+  --text-color: #c6c8d1;
+  font-family: sans-serif;
+  background-color: #161821;
+  color: var(--text-color);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  padding: 16px;
+  font-size: 1.8rem;
+  max-width: max(60rem, 960px);
+  margin-inline: auto;
+}
+
+header a {
+  text-decoration: none;
+}
+
+main {
+  padding: 16px;
+  max-width: max(60rem, 960px);
+  margin-inline: auto;
+}
+
+a {
+  color: var(--text-color);
+}
+
+.posts > * + * {
+  margin-block-start: 3rem;
+}
+
+#article-content {
+  margin-block-start: 4rem;
+}
+
+#article-content pre {
+  tab-size: 2;
+  padding: 0.5rem;
+  line-height: 1.4;
+  font-family: monospace;
+  overflow-y: auto;
+}

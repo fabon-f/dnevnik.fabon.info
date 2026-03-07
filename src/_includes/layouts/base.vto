@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content="{{ eleventy.generator }}">
+  <link href="/main.css" rel="stylesheet">
   <title>{{ title }}</title>
 </head>
 <body>
-  {{ content | safe }}
+  <header><a href="/">fabon's blog</a></header>
+  {{ content }}
 </body>
 </html>

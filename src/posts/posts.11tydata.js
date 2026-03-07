@@ -1,7 +1,7 @@
 import * as v from "valibot";
 
 export default {
-  layout: "layouts/base.njk",
+  layout: "layouts/article.vto",
   permalink(data) {
     const slug = data.slug ?? data.page.fileSlug.replace(/\d+\./, "");
     if (data.draft) {

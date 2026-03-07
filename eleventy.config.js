@@ -5,14 +5,17 @@ import { createMarkdownExit } from "markdown-exit";
 import { codeToHtml } from "shiki";
 
 const md = createMarkdownExit();
-md.use(fromAsyncCodeToHtml(codeToHtml, { theme: "vitesse-light" }));
+md.use(fromAsyncCodeToHtml(codeToHtml, { theme: "nord" }));
 
 export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(VentoPlugin);
 
   eleventyConfig.setInputDirectory("src");
-  eleventyConfig.on("eleventy.before", async ({ dir }) => {
-    await rm(dir.output, { recursive: true, force: true });
+  eleventyConfig.addPassthroughCopy({ public: "." });
+  eleventyConfig.on("eleventy.before", async ({ directories, runMode }) => {
+    if (runMode === "build") {
+      await rm(directories.output, { recursive: true, force: true });
+    }
   });
   eleventyConfig.addPreprocessor("drafts", "*", (data) => {
     if (process.env.ELEVENTY_RUN_MODE === "build" && data.draft) {
