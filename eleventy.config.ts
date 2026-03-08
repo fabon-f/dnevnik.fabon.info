@@ -1,16 +1,21 @@
 import "temporal-polyfill-lite/global";
 import { rm } from "node:fs/promises";
+// @ts-expect-error
+import { HtmlBasePlugin } from "@11ty/eleventy";
 import { fromAsyncCodeToHtml } from "@shikijs/markdown-it/async";
 import { VentoPlugin } from "eleventy-plugin-vento";
 import { createMarkdownExit } from "markdown-exit";
 import { codeToHtml } from "shiki";
-import { parsePageDate } from "./lib/temporal.js";
+import { getSlug } from "./lib/data.js";
+import { generateAtom } from "./lib/feed.ts";
+import { parsePageDate, zonedDateTimeFromPageDate } from "./lib/temporal.js";
 
 const md = createMarkdownExit();
 md.use(fromAsyncCodeToHtml(codeToHtml, { theme: "nord" }));
 
 export default async function (eleventyConfig: any) {
   eleventyConfig.addPlugin(VentoPlugin);
+  eleventyConfig.addPlugin(HtmlBasePlugin);
 
   eleventyConfig.setInputDirectory("src");
   eleventyConfig.addPassthroughCopy({ public: "." });
@@ -38,4 +43,45 @@ export default async function (eleventyConfig: any) {
     }
     return date;
   });
+  eleventyConfig.addTemplate(
+    "feed.11ty.js",
+    class {
+      data() {
+        return {
+          permalink: "/feed.xml",
+        };
+      }
+      async render(this: any, { collections }: any) {
+        const baseUrl = "https://dnevnik.fabon.info";
+        const renderTransforms = this.renderTransforms.bind(this);
+        const transformWithHtmlBase = this.transformWithHtmlBase.bind(this);
+        const limit = 10;
+        const posts = (collections.posts as any[]).toReversed().slice(0, limit);
+        const normalizedContents: string[] = await Promise.all(
+          posts.map(async (post) =>
+            transformWithHtmlBase(
+              await renderTransforms(post.content, post.data.page, baseUrl),
+              baseUrl,
+            ),
+          ),
+        );
+        return generateAtom({
+          id: "tag:dnevnik.fabon.info,2026:feed",
+          title: "fabon's blog",
+          url: new URL("/feed.xml", baseUrl),
+          updatedAt: Temporal.Now.instant(),
+          entries: posts.map((post, i) => {
+            const date = zonedDateTimeFromPageDate(post.date);
+            return {
+              id: `tag:dnevnik.fabon.info,2026:entry:${date.toPlainDate().toString()}/${getSlug(post)}`,
+              link: new URL(post.url, baseUrl),
+              title: post.data.title,
+              contentHtml: normalizedContents[i],
+              updatedAt: date.toInstant(),
+            };
+          }),
+        });
+      }
+    },
+  );
 }

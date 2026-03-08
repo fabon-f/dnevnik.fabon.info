@@ -1,10 +1,11 @@
 import * as v from "valibot";
+import { getSlug } from "../../lib/data.js";
 import { zonedDateTimeFromPageDate } from "../../lib/temporal.js";
 
 export default {
   layout: "layouts/article.vto",
   permalink(data) {
-    const slug = data.slug ?? data.page.fileSlug.replace(/\d+\./, "");
+    const slug = getSlug(data);
     if (data.draft) {
       return `/drafts/${slug}/`;
     }
