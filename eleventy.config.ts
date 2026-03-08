@@ -4,7 +4,7 @@ import { fromAsyncCodeToHtml } from "@shikijs/markdown-it/async";
 import { VentoPlugin } from "eleventy-plugin-vento";
 import { createMarkdownExit } from "markdown-exit";
 import { codeToHtml } from "shiki";
-import { parsePageDate } from "./lib/temporal.ts";
+import { parsePageDate } from "./lib/temporal.js";
 
 const md = createMarkdownExit();
 md.use(fromAsyncCodeToHtml(codeToHtml, { theme: "nord" }));

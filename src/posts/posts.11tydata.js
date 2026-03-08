@@ -1,5 +1,5 @@
 import * as v from "valibot";
-import { zonedDateTimeFromPageDate } from "../../lib/temporal.ts";
+import { zonedDateTimeFromPageDate } from "../../lib/temporal.js";
 
 export default {
   layout: "layouts/article.vto",
