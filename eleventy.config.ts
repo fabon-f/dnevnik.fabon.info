@@ -2,16 +2,15 @@ import "temporal-polyfill-lite/global";
 import { rm } from "node:fs/promises";
 // @ts-expect-error
 import { HtmlBasePlugin } from "@11ty/eleventy";
-import { fromAsyncCodeToHtml } from "@shikijs/markdown-it/async";
+import shikiPlugin from "@shikijs/markdown-exit";
 import { VentoPlugin } from "eleventy-plugin-vento";
 import { createMarkdownExit } from "markdown-exit";
-import { codeToHtml } from "shiki";
 import { getSlug } from "./lib/data.js";
 import { generateAtom } from "./lib/feed.ts";
 import { parsePageDate, zonedDateTimeFromPageDate } from "./lib/temporal.js";
 
 const md = createMarkdownExit();
-md.use(fromAsyncCodeToHtml(codeToHtml, { theme: "nord" }));
+md.use(shikiPlugin({ theme: "nord" }));
 
 export default async function (eleventyConfig: any) {
   eleventyConfig.addPlugin(VentoPlugin);
