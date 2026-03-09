@@ -31,8 +31,17 @@ a {
   color: var(--text-color);
 }
 
-.posts > * + * {
+.posts {
   margin-block-start: 3rem;
+}
+
+.posts > * + * {
+  margin-block-start: 5rem;
+}
+
+.tags {
+  display: flex;
+  gap: 1rem;
 }
 
 #article-content {

@@ -1,14 +1,19 @@
 ---
 layout: layouts/base.vto
-title: fabon's blog
-eleventyImport:
-  collections: ["posts"]
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - posts
+permalink: /tags/{{ tag }}/
 ---
 
 <main>
-  <h1>posts</h1>
+  <h1>tag: {{ tag }}</h1>
   <div class="posts">
-    {{ for post of collections.posts.toReversed() }}
+    {{ for post of collections[tag].toReversed() }}
       <section>
         {{ include "time.vto" { date: post.date } }}
         <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
