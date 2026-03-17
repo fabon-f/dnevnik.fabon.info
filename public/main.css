@@ -12,9 +12,24 @@ body {
 
 header {
   padding: 16px;
-  font-size: 1.8rem;
   max-width: max(60rem, 960px);
   margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-sub {
+  display: flex;
+  gap: 1rem;
+}
+
+header svg {
+  height: 1em;
+  width: auto;
+}
+
+.header-top-link {
+  font-size: 1.8rem;
 }
 
 header a {
