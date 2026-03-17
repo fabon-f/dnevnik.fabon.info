@@ -8,13 +8,13 @@
   "devDependencies": {
     "@11ty/eleventy": "4.0.0-alpha.6",
     "@shikijs/markdown-exit": "^4.0.2",
-    "@types/node": "^25.3.5",
-    "eleventy-plugin-vento": "^5.4.1",
+    "@types/node": "^25.5.0",
+    "eleventy-plugin-vento": "^5.4.2",
     "markdown-exit": "1.0.0-beta.9",
-    "oxfmt": "^0.36.0",
-    "temporal-polyfill-lite": "^0.3.1",
+    "oxfmt": "^0.41.0",
+    "temporal-polyfill-lite": "^0.3.2",
     "typescript": "6.0.1-rc",
-    "valibot": "^1.2.0"
+    "valibot": "^1.3.0"
   },
-  "packageManager": "pnpm@10.31.0"
+  "packageManager": "pnpm@10.32.1"
 }
