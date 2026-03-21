@@ -4,9 +4,11 @@ layout: layouts/base.vto
 
 <main>
   <article>
-    <div>{{ include "time.vto" { date: page.date } }}</div>
-    <h1>{{ title }}</h1>
-    <div class="tags">{{ include "tags.vto" { tags: tags } }}</div>
+    <div class="article-top">
+      <div>{{ include "time.vto" { date: page.date } }}</div>
+      <h1>{{ title }}</h1>
+      <div class="tags">{{ include "tags.vto" { tags: tags } }}</div>
+    </div>
     <div id="article-content">{{ content }}</div>
   </article>
 </main>
