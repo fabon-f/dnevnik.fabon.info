@@ -1,17 +1,17 @@
 import * as v from "valibot";
-import { getSlug } from "../../lib/data.js";
-import { zonedDateTimeFromPageDate } from "../../lib/temporal.js";
+import { getSlug } from "../../lib/data.ts";
+import { zonedDateTimeFromPageDate } from "../../lib/temporal.ts";
 
 export default {
   layout: "layouts/article.vto",
-  permalink(data) {
+  permalink(data: any) {
     const slug = getSlug(data);
     if (data.draft) {
       return `/drafts/${slug}/`;
     }
     return `/posts/${zonedDateTimeFromPageDate(data.page.date).toPlainDate().toString().replaceAll("-", "/")}/${slug}/`;
   },
-  eleventyDataSchema(data) {
+  eleventyDataSchema(data: unknown) {
     const schema = v.union([
       v.object({ draft: v.literal(true) }),
       v.object({

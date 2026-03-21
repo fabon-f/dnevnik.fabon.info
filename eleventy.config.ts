@@ -5,9 +5,9 @@ import { HtmlBasePlugin } from "@11ty/eleventy";
 import shikiPlugin from "@shikijs/markdown-exit";
 import { VentoPlugin } from "eleventy-plugin-vento";
 import { createMarkdownExit } from "markdown-exit";
-import { getSlug } from "./lib/data.js";
+import { getSlug } from "./lib/data.ts";
 import { generateAtom } from "./lib/feed.ts";
-import { parsePageDate, zonedDateTimeFromPageDate } from "./lib/temporal.js";
+import { parsePageDate, zonedDateTimeFromPageDate } from "./lib/temporal.ts";
 
 const md = createMarkdownExit();
 md.use(shikiPlugin({ theme: "nord" }));
