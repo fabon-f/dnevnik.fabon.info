@@ -83,4 +83,15 @@ export default async function (eleventyConfig: any) {
       }
     },
   );
+  // cf. https://github.com/11ty/eleventy/issues/4194
+  eleventyConfig.addDataExtension("ts", {
+    async parser(contents: Buffer<ArrayBuffer>, filePath: string) {
+      const hash = new Uint8Array(
+        await crypto.subtle.digest({ name: "SHA-256" }, contents.buffer),
+      ).toHex();
+      const module = await import(`${filePath}?${new URLSearchParams({ hash })}`);
+      return module.default;
+    },
+    encoding: null,
+  });
 }
