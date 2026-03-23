@@ -5,12 +5,15 @@ import { HtmlBasePlugin } from "@11ty/eleventy";
 import shikiPlugin from "@shikijs/markdown-exit";
 import { VentoPlugin } from "eleventy-plugin-vento";
 import { createMarkdownExit } from "markdown-exit";
+// @ts-expect-error
+import footNotePlugin from "markdown-it-footnote";
 import { getSlug } from "./lib/data.ts";
 import { generateAtom } from "./lib/feed.ts";
 import { parsePageDate, zonedDateTimeFromPageDate } from "./lib/temporal.ts";
 
 const md = createMarkdownExit();
 md.use(shikiPlugin({ theme: "nord" }));
+md.use(footNotePlugin);
 
 export default async function (eleventyConfig: any) {
   eleventyConfig.addPlugin(VentoPlugin);
