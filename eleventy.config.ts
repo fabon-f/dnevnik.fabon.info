@@ -11,7 +11,7 @@ import { getSlug } from "./lib/data.ts";
 import { generateAtom } from "./lib/feed.ts";
 import { parsePageDate, zonedDateTimeFromPageDate } from "./lib/temporal.ts";
 
-const md = createMarkdownExit();
+const md = createMarkdownExit({ html: true });
 md.use(shikiPlugin({ theme: "nord" }));
 md.use(footNotePlugin);
 
