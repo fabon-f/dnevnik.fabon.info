@@ -12,7 +12,7 @@
     "eleventy-plugin-vento": "^5.4.3",
     "markdown-exit": "1.0.0-beta.9",
     "markdown-it-footnote": "^4.0.0",
-    "oxfmt": "^0.43.0",
+    "oxfmt": "^0.44.0",
     "temporal-polyfill-lite": "^0.3.3",
     "typescript": "6.0.2",
     "valibot": "^1.3.1"
