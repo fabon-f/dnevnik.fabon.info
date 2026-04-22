@@ -79,6 +79,18 @@ a {
   padding: 0.2em;
 }
 
+#article-content table {
+  border-collapse: collapse;
+}
+
+#article-content th, #article-content td {
+  padding: 0.25rem;
+}
+
+#article-content thead {
+  border-bottom: 1px solid #c6c8d1;
+}
+
 .article-top :where(h1) {
   margin-block: 0;
 }
