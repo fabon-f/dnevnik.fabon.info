@@ -4,6 +4,9 @@ import { zonedDateTimeFromPageDate } from "../../lib/temporal.ts";
 
 export default {
   layout: "layouts/article.vto",
+  og: {
+    type: "article",
+  },
   permalink(data: any) {
     const slug = getSlug(data);
     if (data.draft) {

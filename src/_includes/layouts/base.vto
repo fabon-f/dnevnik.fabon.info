@@ -6,7 +6,11 @@
   <meta name="generator" content="{{ eleventy.generator }}">
   <link href="/main.css" rel="stylesheet">
   <link rel="alternate" type="application/atom+xml" title="fabon's blog" href=/feed.xml />
-  <title>{{ title }}</title>
+  <title>{{ title |> escape }}</title>
+  <meta property="og:title" content="{{ title |> escape }}">
+  <meta property="og:type" content="{{ og?.type ?? "website" }}">
+  <meta property="og:url" content="https://dnevnik.fabon.info{{ page.url }}">
+  {{ if description }}<meta property="og:description" content="{{ description |> escape }}">{{ /if }}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
