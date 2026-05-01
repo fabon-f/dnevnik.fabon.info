@@ -56,9 +56,15 @@ a {
   margin-block-start: 5rem;
 }
 
-.tags {
+.tags-ul {
+  padding: 0;
+  margin: 0;
   display: flex;
   gap: 1rem;
+}
+
+.tags-ul li {
+  list-style: none;
 }
 
 #article-content {

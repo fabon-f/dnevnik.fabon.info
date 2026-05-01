@@ -17,7 +17,7 @@ permalink: /tags/{{ tag }}/
       <section>
         {{ include "time.vto" { date: post.date } }}
         <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-        <div class="tags">{{ include "tags.vto" { tags: post.data.tags } }}</div>
+        {{ include "tags.vto" { tags: post.data.tags } }}
       </section>
     {{ /for }}
   </div>

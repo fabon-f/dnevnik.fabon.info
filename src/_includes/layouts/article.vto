@@ -7,7 +7,7 @@ layout: layouts/base.vto
     <div class="article-top">
       <div>{{ include "time.vto" { date: page.date } }}</div>
       <h1>{{ title }}</h1>
-      <div class="tags">{{ include "tags.vto" { tags: tags } }}</div>
+      {{ include "tags.vto" { tags: tags } }}
     </div>
     <div id="article-content">{{ content }}</div>
   </article>
