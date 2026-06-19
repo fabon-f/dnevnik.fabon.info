@@ -23,6 +23,8 @@ jobs:
         run: pnpm install
       - name: Build
         run: pnpm run build
+      - name: Relax pnpm config for wrangler-action
+        run: "echo 'strictDepBuilds: false' >> pnpm-workspace.yaml"
       - uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           wranglerVersion: "4.80.0"
