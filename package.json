@@ -6,9 +6,9 @@
     "build": "eleventy --config eleventy.config.ts"
   },
   "devDependencies": {
-    "@11ty/eleventy": "4.0.0-alpha.8",
+    "@11ty/eleventy": "4.0.0-alpha.10",
     "@shikijs/markdown-exit": "^4.3.0",
-    "@types/node": "^26.0.1",
+    "@types/node": "^26.1.0",
     "eleventy-plugin-vento": "^5.4.3",
     "markdown-exit": "1.1.0-beta.2",
     "markdown-it-footnote": "^4.0.0",
