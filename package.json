@@ -7,15 +7,15 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "4.0.0-alpha.10",
-    "@shikijs/markdown-exit": "^4.3.0",
+    "@shikijs/markdown-exit": "^4.3.1",
     "@types/node": "^26.1.0",
     "eleventy-plugin-vento": "^5.4.3",
     "markdown-exit": "1.1.0-beta.2",
     "markdown-it-footnote": "^4.0.0",
-    "oxfmt": "^0.57.0",
+    "oxfmt": "^0.58.0",
     "temporal-polyfill-lite": "^0.4.2",
     "typescript": "6.0.3",
     "valibot": "^1.4.2"
   },
-  "packageManager": "pnpm@11.9.0"
+  "packageManager": "pnpm@11.10.0"
 }
