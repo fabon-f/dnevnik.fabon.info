@@ -12,10 +12,10 @@
     "eleventy-plugin-vento": "^6.0.0",
     "markdown-exit": "1.1.0-beta.2",
     "markdown-it-footnote": "^4.0.0",
-    "oxfmt": "^0.63.0",
+    "oxfmt": "^0.64.0",
     "temporal-polyfill-lite": "^0.4.2",
     "typescript": "7.0.2",
     "valibot": "^1.4.2"
   },
-  "packageManager": "pnpm@11.21.0"
+  "packageManager": "pnpm@11.22.0"
 }
