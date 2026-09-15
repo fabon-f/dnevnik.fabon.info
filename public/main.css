@@ -67,6 +67,10 @@ a {
   list-style: none;
 }
 
+.translations {
+  margin-top: 2rem;
+}
+
 #article-content {
   margin-block-start: 4rem;
   line-height: 1.8;

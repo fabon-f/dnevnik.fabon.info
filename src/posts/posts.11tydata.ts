@@ -21,6 +21,7 @@ export default {
         draft: v.optional(v.literal(false)),
         title: v.string(),
         date: v.union([v.date(), v.string()]),
+        translations: v.optional(v.record(v.string(), v.string())),
       }),
     ]);
     v.parse(schema, data);

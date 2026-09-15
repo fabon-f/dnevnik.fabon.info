@@ -1,0 +1,10 @@
+{{ if translations }}
+  <div class="translations">
+    <p>other versions:</p>
+    <ul>
+      {{ for locale, link of translations }}
+        <li lang="{{ locale }}"><a href="{{ link }}">{{ ({ ja: "日本語版" })[locale] }}</a></li>
+      {{ /for }}
+    </ul>
+  </div>
+{{ /if }}
