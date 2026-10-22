@@ -27,6 +27,6 @@ jobs:
         run: "echo 'strictDepBuilds: false' >> pnpm-workspace.yaml"
       - uses: cloudflare/wrangler-action@953926a2e2182532811c01a25e53647d93bf07c0 # v4.1.3
         with:
-          wranglerVersion: "4.80.0"
+          wranglerVersion: "4"
           accountId: 3f28d3a5c9a4bdc4a451bb2ce2ba89be
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
