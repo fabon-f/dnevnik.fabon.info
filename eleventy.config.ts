@@ -1,6 +1,5 @@
 import "temporal-polyfill-lite/global";
 import { rm } from "node:fs/promises";
-// @ts-expect-error
 import { HtmlBasePlugin } from "@11ty/eleventy";
 import shikiPlugin from "@shikijs/markdown-exit";
 import { VentoPlugin } from "eleventy-plugin-vento";
@@ -12,6 +11,7 @@ import { generateAtom } from "./lib/feed.ts";
 import { parsePageDate, zonedDateTimeFromPageDate } from "./lib/temporal.ts";
 
 const md = createMarkdownExit({ html: true });
+// @ts-expect-error
 md.use(shikiPlugin({ theme: "nord" }));
 md.use(footNotePlugin);
 
