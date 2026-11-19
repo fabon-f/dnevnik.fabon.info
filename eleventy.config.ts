@@ -1,6 +1,6 @@
 import "temporal-polyfill-lite/global";
 import { rm } from "node:fs/promises";
-import { HtmlBasePlugin } from "@11ty/eleventy";
+import { defineConfig, HtmlBasePlugin } from "@11ty/eleventy";
 import shikiPlugin from "@shikijs/markdown-exit";
 import { VentoPlugin } from "eleventy-plugin-vento";
 import { createMarkdownExit } from "markdown-exit";
@@ -15,7 +15,7 @@ const md = createMarkdownExit({ html: true });
 md.use(shikiPlugin({ theme: "nord" }));
 md.use(footNotePlugin);
 
-export default async function (eleventyConfig: any) {
+export default defineConfig(async (eleventyConfig) => {
   eleventyConfig.addPlugin(VentoPlugin);
   eleventyConfig.addPlugin(HtmlBasePlugin);
 
@@ -85,5 +85,6 @@ export default async function (eleventyConfig: any) {
         });
       }
     },
+    undefined,
   );
-}
+});
